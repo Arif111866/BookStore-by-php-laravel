@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class , 'homepage'] ) ;
 Route::get('/CreatBook', [BookController::class ,'bookCreat'] ) ;
+Route::get('/{id}/show', [BookController::class ,'show'] ) -> name('book.show') ;

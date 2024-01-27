@@ -14,22 +14,25 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($books as $book)
             <tr>
-                <td>1</td>
-                <td>Book A</td>
-                <td>Ariful Islam</td>
-                <td>10</td>
-                <td>$19.99</td>
+                <td> {{ $book->id }} </td>
+                <td> {{ $book->title }} </td>
+                <td> {{ $book->author }} </td>
+                <td> {{ $book->stock }} </td>
+                <td> {{ $book->price }} </td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-success">View</button>
+                       
+                        <a href="{{route('book.show' , $book->id)}}" class="btn btn-success">View</a>
                         <div class="mx-1"></div> <!-- Small gap -->
-                        <button class="btn btn-info">Edit</button>
+                        <a href="" class="btn btn-info">Edit</a>
                         <div class="mx-1"></div> <!-- Small gap -->
-                        <button class="btn btn-danger">Delete</button>
+                        <a href="" class="btn btn-danger">Delete</a>
                     </div>
                 </td>
             </tr>
+            @endforeach
             <!-- Add more rows as needed -->
         </tbody>
     </table>
