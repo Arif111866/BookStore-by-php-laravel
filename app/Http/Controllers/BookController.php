@@ -6,8 +6,13 @@ use App\Models\Book;
 
 class BookController extends Controller
 {
-       public function homepage(){   
-              $books = Book::paginate(10) ;
+       public function homepage(Request $request){
+              if($request->has('search')){
+                    $books = Book::where('title', 'like' , '%'.$request->search.'%')
+                            ->orWhere('author', 'like' , '%'.$request->search.'%')->paginate(10);
+              }else{
+                     $books = Book::paginate(10) ;
+              }
               return view('book.homepage') -> with('books', $books) ;
        }
 
@@ -60,7 +65,7 @@ class BookController extends Controller
               $book->save();
               return redirect()->route('book.show' , $book->id);
        }
-       public function destroy($id){
+       public function destroy(Request $request, $id){
               $book = Book::find($id);
               $book->delete();
               return redirect()->route('book.homepage');

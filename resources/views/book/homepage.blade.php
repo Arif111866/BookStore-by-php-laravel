@@ -27,7 +27,11 @@
                         <div class="mx-1"></div> <!-- Small gap -->
                         <a href="{{ route('book.edit' , $book->id) }}" class="btn btn-info">Edit</a>
                         <div class="mx-1"></div> <!-- Small gap -->
-                        <a href="" class="btn btn-danger">Delete</a>
+                        <form method="POST" action="{{ route('book.destroy', ['id' => $book->id]) }}" onsubmit="return confirm('are you sure?')">
+                            @csrf
+                            {{-- <input type="hidden" name = "id" value ="{{$book->id}}"> --}}
+                            <button type="submit" name="Delete" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </td>
             </tr>

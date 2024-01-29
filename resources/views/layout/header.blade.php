@@ -13,8 +13,9 @@
         <a class="navbar-brand" href="{{route("book.homepage")}}">Home</a>
         <a class="navbar-brand" href="#">Books</a>
         <a class="navbar-brand" href="#">About</a>
-        <form class="form-inline">
-            <input class="form-control mr-2" type="text" placeholder="Search...">
+        <form class="form-inline" method="GET" action="{{ route("book.homepage") }}">
+            @csrf
+            <input class="form-control mr-2" type="text" placeholder="Search..." name="search" value="{{ request('search') }}">
             <button class="btn btn-success" type="submit">Search</button>
         </form>
         <a href="{{ route("book.bookCreat") }}" class="btn btn-primary">CreatBook</a>
