@@ -19,3 +19,4 @@ Route::get('/{id}/show', [BookController::class ,'show'] ) -> name('book.show') 
 Route::post('', [BookController::class ,'store'] ) -> name('book.store') ;
 Route::get('/{id}/edit', [BookController::class ,'edit'] ) -> name('book.edit') ;
 Route::post('/{id}', [BookController::class ,'update'] ) -> name('book.update') ;
+Route::delete('/{id}', [BookController::class ,'destroy'] ) -> name('book.destroy') ;
