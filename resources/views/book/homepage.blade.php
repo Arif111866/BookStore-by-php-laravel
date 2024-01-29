@@ -2,7 +2,7 @@
 @section('main-section')
 
 <div class="container mt-4">
-    <table class="table table-bordered text-center">
+    <table  class="table table-striped">
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
@@ -19,14 +19,13 @@
                 <td> {{ $book->id }} </td>
                 <td> {{ $book->title }} </td>
                 <td> {{ $book->author }} </td>
-                <td> {{ $book->stock }} </td>
-                <td> {{ $book->price }} </td>
+                <td> {{ $book->stock }} unit </td>
+                <td> {{ $book->price }} $ </td>
                 <td>
                     <div class="btn-group">
-                       
                         <a href="{{route('book.show' , $book->id)}}" class="btn btn-success">View</a>
                         <div class="mx-1"></div> <!-- Small gap -->
-                        <a href="" class="btn btn-info">Edit</a>
+                        <a href="{{ route('book.edit' , $book->id) }}" class="btn btn-info">Edit</a>
                         <div class="mx-1"></div> <!-- Small gap -->
                         <a href="" class="btn btn-danger">Delete</a>
                     </div>
@@ -37,7 +36,7 @@
         </tbody>
     </table>
 </div>
-
-
-
+<div>
+    {{$books ->withQueryString()->links()}} ;
+</div>
 @endsection

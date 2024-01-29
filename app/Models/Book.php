@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+    const CREATED_AT = 'insert_time';
+    const UPDATED_AT = 'update_time';
 }

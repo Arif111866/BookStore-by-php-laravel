@@ -1,5 +1,5 @@
-@include('layout.header')
+@include('layout.header');
 <div class="container">
-    @yield('main-section')
+    @yield('main-section') 
 </div>
-@include('layout.footer')
+@include('layout.footer') ;
